@@ -12,15 +12,14 @@ def take_turn(player):
     print(player + "'s turn.")
     position = input("Choose a position from 1-9: ")
     while position not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
-        position = input("Invalid input. Choose a position from 1-9: ")
+        position = input("Invalid input!!.Choose a position from 1-9: ")
     position = int(position) - 1
     while board[position] != "-":
-        position = int(input("Position already taken. Choose a different position: ")) - 1
+        position = int(input("Position is already taken!!.Choose a different position: ")) - 1
     board[position] = player
     print_board()
 
 def check_game_over():
-    # Check for a win
     if (board[0] == board[1] == board[2] != "-") or \
        (board[3] == board[4] == board[5] != "-") or \
        (board[6] == board[7] == board[8] != "-") or \
@@ -30,10 +29,8 @@ def check_game_over():
        (board[0] == board[4] == board[8] != "-") or \
        (board[2] == board[4] == board[6] != "-"):
         return "win"
-
     elif "-" not in board:
         return "tie"
-    
     else:
         return "play"
 
@@ -52,7 +49,6 @@ def play_game():
             print("It's a tie!")
             game_over = True
         else:
-            # Switch to the other player
             current_player = "O" if current_player == "X" else "X"
 
 
